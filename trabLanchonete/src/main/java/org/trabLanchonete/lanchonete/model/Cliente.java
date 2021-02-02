@@ -11,7 +11,7 @@ public class Cliente {
 	private String telefoneCliente;
 	private String nomeCliente;
 	private String enderecoCliente;
-	
+	private Pedido pedido;
 	
 
 	public Cliente() {
@@ -28,7 +28,12 @@ public class Cliente {
 		
 	}
 	
-
+	public String getID() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getTelefoneCliente() {
 		return telefoneCliente;
