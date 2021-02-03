@@ -1,7 +1,11 @@
 package org.trabLanchonete.lanchonete.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Lanche {
@@ -10,7 +14,10 @@ public class Lanche {
 	private double numero;
 	private String nomeLanche;
 	private String nomeIngrediente;
-	private List<Ingrediente> ingredientes;
+	@OneToMany 
+	private List<Ingredientes> ingrediente;
+	@OneToMany
+	private List<Fornecedor> fornecedor;
 	
 	public double getNumero() {
 		return numero;
@@ -30,21 +37,20 @@ public class Lanche {
 	public void setNomeIngrediente(String nomeIngrediente) {
 		this.nomeIngrediente = nomeIngrediente;
 	}
-	public void setIngrediente(Ingrediente ingrediente) {
-		this.ingrediente.add(ingrediente);
+	public List<Ingredientes> getIngrediente() {
+		return ingrediente;
 	}
-	public int getCodIngrediente() {
-		return codIngrediente;
+	public void setIngrediente(List<Ingredientes> ingrediente) {
+		this.ingrediente = ingrediente;
 	}
-	public void setCodIngrediente(int codIngrediente) {
-		this.codIngrediente = codIngrediente;
+	public List<Fornecedor> getFornecedor() {
+		return fornecedor;
 	}
-	public int getCodFornecedor() {
-		return codFornecedor;
+	public void setFornecedor(List<Fornecedor> fornecedor) {
+		this.fornecedor = fornecedor;
 	}
-	public void setCodFornecedor(int codFornecedor) {
-		this.codFornecedor = codFornecedor;
-	}
+
 	
 	
 }
+© 2021 GitHub, Inc.

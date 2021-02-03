@@ -14,7 +14,9 @@ public class Pedido {
 	@Id
 	private int nroPedido;
 	private LocalDateTime dtPedido;
-	private Cliente cliente;
+	private String nomeCliente;
+	private String telefone;
+	private String endereco;
 	private Lanche lanche;
 
 	public Pedido() {
@@ -22,15 +24,36 @@ public class Pedido {
 	}
 	
 	
-	public Pedido(int nroPedido, LocalDateTime dtPedido, Cliente cliente, List<Lanche> lanches) {
+	public Pedido(int nroPedido, LocalDateTime dtPedido, String nomeCliente, String telefone, String endereco, List<Lanche> lanches) {
 		super();
 		this.nroPedido = nroPedido;
 		this.dtPedido = dtPedido;
-		this.cliente = cliente;
+		this.nomeCliente = nomeCliente;
+		this.telefone = telefone;
+		this.endereco = endereco;
 		this.Lanches = lanches;
 		
 	}
+	public String getnomeCliente() {
+		return nomeCliente;
+	}
+	public void setnomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
 	
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	public LocalDateTime getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 	
 	public LocalDateTime getDtPedido() {
 		return dtPedido;

@@ -25,7 +25,7 @@ public class PedidoController {
 	
 	@RequestMapping("listarPedidosCliente")
 	public String getProdutosLanchonete(Model model) {
-		model.addAttribute("pedidos", repositorio.getPedido());
+		model.addAttribute("pedido", repositorio.getPedido());
 		return "cardapio";
 	}
 	
