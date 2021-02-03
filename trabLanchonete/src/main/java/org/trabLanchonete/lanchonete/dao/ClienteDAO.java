@@ -11,9 +11,9 @@ public class ClienteDAO {
 		
 		try {
 			conn = ConnectionLanchoneteFactory.getConnection();
-			String sql = "insert into cliente () values (?, ?, ?,?,?)";
+			String sql = "insert into cliente () values (?, ?, ?)";
 			ps = conn.prepareStatement(sql);
-			ps.setDouble(1, cliente.getID());
+			ps.setDouble(1, cliente.get);
 
 			ps.executeUpdate();
 			conn.close();

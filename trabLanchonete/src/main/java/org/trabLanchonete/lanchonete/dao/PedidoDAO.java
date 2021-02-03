@@ -20,6 +20,7 @@ public class PedidoDAO {
 			String sql = "insert into pedido () values (?, ?, ?)";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, pedido.getCliente().getTelefoneCliente());
+			
 
 			ps.executeUpdate();
 			conn.close();
@@ -55,5 +56,23 @@ public class PedidoDAO {
 		}
 		return pedidos;
 	}
+}
+public List<Pedido> listarUm(int codigo) {
+	Connection conn = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	
+	try {
+		conn = ConnectionLanchoneteFactory.getConnection();
+		String sql = "select * from pedido where codigo = (?)";
+		ps = conn.prepareStatement(sql);
+		ps.setString(codigo);
+		rs = ps.executeQuery();
+		conn.close();
+	} catch (Exception e) {
+		throw new RuntimeException();
+	}
+	return pedidos;
+}
 }
 

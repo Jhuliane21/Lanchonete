@@ -11,7 +11,7 @@ public class Cliente {
 	private String telefoneCliente;
 	private String nomeCliente;
 	private String enderecoCliente;
-	private Pedido pedido;
+	
 	
 
 	public Cliente() {
@@ -54,9 +54,9 @@ public class Cliente {
 		this.enderecoCliente = enderecoCliente;
 	}
 	public void addCliente(String telefoneCliente, String nomeCliente, String enderecoCliente ) {
-		this.setTelefoneCliente(telefoneCliente);
-		this.setNomeCliente(nomeCliente);
-		this.setEnderecoCliente(enderecoCliente);
+		Cliente c1 = new Cliente(telefoneCliente, nomeCliente, enderecoCliente);
+		ClienteDAO.gravar(c1);
+		
 	}
 	
 }

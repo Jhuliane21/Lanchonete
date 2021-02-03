@@ -10,8 +10,7 @@ public class Lanche {
 	private double numero;
 	private String nomeLanche;
 	private String nomeIngrediente;
-	private int codIngrediente;
-	private int codFornecedor; //List<Fornecedor>
+	private List<Ingrediente> ingredientes;
 	
 	public double getNumero() {
 		return numero;
@@ -30,6 +29,9 @@ public class Lanche {
 	}
 	public void setNomeIngrediente(String nomeIngrediente) {
 		this.nomeIngrediente = nomeIngrediente;
+	}
+	public void setIngrediente(Ingrediente ingrediente) {
+		this.ingrediente.add(ingrediente);
 	}
 	public int getCodIngrediente() {
 		return codIngrediente;

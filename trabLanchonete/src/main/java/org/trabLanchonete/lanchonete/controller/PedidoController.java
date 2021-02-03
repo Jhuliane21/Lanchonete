@@ -11,7 +11,6 @@ public class PedidoController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public void redirect(HttpServletResponse httpResponse) throws Exception {
-
 	     httpResponse.sendRedirect("/trabLanchonete");
 	}
 	

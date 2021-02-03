@@ -16,8 +16,6 @@ public class Pedido {
 	private LocalDateTime dtPedido;
 	private Cliente cliente;
 	private Lanche lanche;
-	
-	List<Lanche> Lanches;
 
 	public Pedido() {
 		
@@ -49,17 +47,25 @@ public class Pedido {
 	public Cliente getCliente() {
 		return cliente;
 	}
+	public Cliente getLanches() {
+		return lanche;
+	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public void setLanches(List<Lanche> lanches) {
-		this.Lanches = lanches;
+	public void setLanches(Lanche lanche) {
+		this.lanche = lanche;
 	}
+
 	
-	public void FazerPedido(int nroPedido, LocalDateTime dtPedido, double valorTotal, Cliente cliente, List<Lanche> lanches) {
-		Pedido p1 = new Pedido(nroPedido, dtPedido, cliente, lanches);
+	public void FazerPedido(int nroPedido, LocalDateTime dtPedido, double valorTotal, Cliente cliente, Lanche lanche) {
+		Pedido p1 = new Pedido(nroPedido, dtPedido, cliente, lanche);
 		PedidoDAO.gravar(p1);
 	}
+	public void consultarPedido(int numero) {
+		PedidoDAO.listarUm(numero);
+	}
+	
 	
 	
 }
