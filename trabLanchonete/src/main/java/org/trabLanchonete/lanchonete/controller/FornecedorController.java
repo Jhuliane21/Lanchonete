@@ -2,6 +2,7 @@ package org.trabLanchonete.lanchonete.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.trabLanchonete.lanchonete.model.Fornecedor;
 import org.trabLanchonete.lanchonete.repositorio.FornecedorRepositorio;
@@ -18,6 +19,7 @@ public class FornecedorController {
 		this.repositorio = repositorio;
 	}
 	
+	@Transactional
 	@RequestMapping("fornecedor")
 	public String fornecedorForm() {
 		return "fornecedor";

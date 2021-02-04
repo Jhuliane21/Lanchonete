@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import org.trabLanchonete.lanchonete.model.Pedido;
 
 public class PedidoRepositorio {
+	
 	@PersistenceContext
 	private EntityManager manager;
 
