@@ -19,20 +19,20 @@ public class LancheController {
 		this.lanche = lanche;
 	}
 	
-//	@RequestMapping("listarLanche")
-//	public String getLanchesLanchonete(Model model) {
-//		model.addAttribute("lanches", repositorio.getLanche());
-//		return "lanches";
-//	}
+	@RequestMapping("listarLanche")
+	public String getLanchesLanchonete(Model model) {
+		model.addAttribute("lanches", repositorio.getLanche());
+		return "lanches";
+	}
 	
 	@RequestMapping("listarLanches")
-	public String getPedidos(Model model) {
+	public String getLanches(Model model) {
 		model.addAttribute("lanche", repositorio.getLanches());
 		return "lanche";
 	}
 	
 	@RequestMapping("adicionarLanche")
-	public String adicionarPedido(int numero) {
+	public String adicionarLanche(int numero) {
 		repositorio.cadastrar(repositorio.getLanche(numero));
 		return "redirect:listarLanches";
 	}

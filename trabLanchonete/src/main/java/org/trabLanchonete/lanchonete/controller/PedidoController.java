@@ -23,30 +23,30 @@ public class PedidoController {
 		this.pedido = pedido;
 	}
 	
-//	@RequestMapping("listarPedidosCliente")
-//	public String getProdutosLanchonete(Model model) {
-//		model.addAttribute("pedido", repositorio.getPedido());
-//		return "cardapio";
-//	}
+	@RequestMapping("listarPedidosCliente")
+	public String getProdutosLanchonete(Model model) {
+		model.addAttribute("pedido", repositorio.getPedido());
+		return "cardapio";
+	}
 	
-//	@RequestMapping("listarPedidos")
-//	public String getPedidos(Model model) {
-//		model.addAttribute("pedido", carrinho.getPedidos());
-//		return "pedido";
-//	}
-//	
-//	@RequestMapping("adicionarPedido")
-//	public String adicionarPedido(int codigo) {
-//		carrinho.adicionar(repositorio.getPedido(codigo));
-//		return "redirect:listarPedidos";
-//	}
-//	
-//	@RequestMapping("removerPedido")
-//	public String removerPedido(int codigo) {
-//		carrinho.removerPedido(codigo);
-//		return "redirect:listarPedidos";
-//	}
-//	
+	@RequestMapping("listarPedidos")
+	public String getPedidos(Model model) {
+		model.addAttribute("pedido", carrinho.getPedidos());
+		return "pedido";
+	}
+	
+	@RequestMapping("adicionarPedido")
+	public String adicionarPedido(int codigo) {
+		carrinho.adicionar(repositorio.getPedido(codigo));
+		return "redirect:listarPedidos";
+	}
+	
+	@RequestMapping("removerPedido")
+	public String removerPedido(int codigo) {
+		carrinho.removerPedido(codigo);
+		return "redirect:listarPedidos";
+	}
+	
 	
 }
 

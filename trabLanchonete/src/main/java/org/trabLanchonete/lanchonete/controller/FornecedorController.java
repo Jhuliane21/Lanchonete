@@ -24,5 +24,21 @@ public class FornecedorController {
 	public String fornecedorForm() {
 		return "fornecedor";
 	}
+	@RequestMapping("adicionarFornecedor")
+	public String adicionarFornecedor(int numero) {
+		repositorio.cadastrar(repositorio.getFornecedor(numero));
+		return "redirect:listarFornecedor";
+	}
 	
+	@RequestMapping("listarFornecedor")
+	public String getFornecedor(Model model) {
+		model.addAttribute("fornecedor", repositorio.getFornecedor());
+		return "lanches";
+	}
+	
+	@RequestMapping("listarLanches")
+	public String getPedidos(Model model) {
+		model.addAttribute("lanche", repositorio.getLanches());
+		return "lanche";
+	}
 }

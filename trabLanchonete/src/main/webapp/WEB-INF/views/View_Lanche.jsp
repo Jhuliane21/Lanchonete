@@ -4,17 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Adicionar cliente</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<form method=post action=>
-	ID:<input type=text name=id>
+	<form method=post action=adicionarLanche>
+	Numero:<input type=text name=id>
 	<br>
-	Telefone:<input type=text name=numero>
+	Nome:<input type=text name=numero>
 	<br>
-	Nome:<input type=text name=id_cliente>
+	Ingredientes:<input type=text name=id_cliente>
 	<br>
-	Endereço:<input type=text name=codigo_lanche>
 	<input type=submit value=adicionar>
 	</form>
 </body>
