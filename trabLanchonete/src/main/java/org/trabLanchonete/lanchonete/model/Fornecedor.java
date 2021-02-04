@@ -1,12 +1,14 @@
 package org.trabLanchonete.lanchonete.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Fornecedor {
 	
 	@Id
+	@GeneratedValue
 	private int cod;
 	private String nome;
 	private String telefone;

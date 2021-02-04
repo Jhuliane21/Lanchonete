@@ -1,17 +1,24 @@
 package org.trabLanchonete.lanchonete.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Lanche {
 	
 	@Id
+	@GeneratedValue
 	private double numero;
 	private String nomeLanche;
 	private String nomeIngrediente;
-	private int codIngrediente;
-	private int codFornecedor; //List<Fornecedor>
+	@OneToMany 
+	private List<Ingrediente> ingrediente;
+	@OneToMany
+	private List<Fornecedor> fornecedor;
 	
 	public double getNumero() {
 		return numero;
@@ -31,18 +38,16 @@ public class Lanche {
 	public void setNomeIngrediente(String nomeIngrediente) {
 		this.nomeIngrediente = nomeIngrediente;
 	}
-	public int getCodIngrediente() {
-		return codIngrediente;
+	public List<Ingrediente> getIngrediente() {
+		return ingrediente;
 	}
-	public void setCodIngrediente(int codIngrediente) {
-		this.codIngrediente = codIngrediente;
+	public void setIngrediente(List<Ingrediente> ingrediente) {
+		this.ingrediente = ingrediente;
 	}
-	public int getCodFornecedor() {
-		return codFornecedor;
+	public List<Fornecedor> getFornecedor() {
+		return fornecedor;
 	}
-	public void setCodFornecedor(int codFornecedor) {
-		this.codFornecedor = codFornecedor;
+	public void setFornecedor(List<Fornecedor> fornecedor) {
+		this.fornecedor = fornecedor;
 	}
-	
-	
 }
