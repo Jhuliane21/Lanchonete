@@ -1,5 +1,7 @@
 package org.trabLanchonete.lanchonete.repositorio;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -18,13 +20,28 @@ public class FornecedorRepositorio {
 		manager.persist(fornecedor);
 	}
 	
-	public Fornecedor getFornecedor(String nome) {
-		Query query = manager.createQuery("select f from fornecedor f where f.nome = ?1");
-		query.setParameter(1, nome);
+	public Lanche getFornecedor(int cod) {
+		Query query = manager.createQuery("select f from fornecedor f where f.cod = ?1");
+		query.setParameter(1, numero);
 		try {
 			return (Fornecedor) query.getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}
 	}
+	
+	public List<Fornecedor> getFornecedores() {
+		TypedQuery<Fornecedor> query = manager.createQuery("select l from fornecedor l", Fornecedor.class);
+		return query.getResultList();
+	}
+	
+	public void excluir(Fornecedor fornecedor) {
+		manager.remove(fornecedor);
+	}
+	
+	public Lanche getFornecedores(int codigo) {
+		return manager.find(Fornecedores.class, codigo);
+	}
+
+}
 }

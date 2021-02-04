@@ -25,7 +25,7 @@ public class LancheRepositorio {
 	}
 	
 
-	public Lanche getFornecedor(int numero) {
+	public Lanche getLanche(int numero) {
 		Query query = manager.createQuery("select f from lanche f where f.numero = ?1");
 		query.setParameter(1, numero);
 		try {
@@ -35,15 +35,6 @@ public class LancheRepositorio {
 		}
 	}	
 
-	public Lanche getLanche(int numero) {
-		Query query = manager.createQuery("select f from lanche f where f.numero = ?1");
-		query.setParameter(1, numero);
-		try {
-			return (Lanche) query.getSingleResult();
-		} catch (NoResultException e) {
-			return null;
-		}
-	}
 	
 	public List<Lanche> getLanches() {
 		TypedQuery<Lanche> query = manager.createQuery("select l from lanche l", Lanche.class);
@@ -54,8 +45,8 @@ public class LancheRepositorio {
 		manager.remove(lanche);
 	}
 	
-//	public Lanche getLancheo(int codigo) {
-//		return manager.find(Lanche.class, codigo);
-//	}
+	public Lanche getLanches(int codigo) {
+		return manager.find(Lanche.class, codigo);
+	}
 
 }

@@ -35,6 +35,14 @@ public class IngredienteRepositorio {
 		TypedQuery<Ingrediente> query = manager.createQuery("select l from ingrediente l", Ingrediente.class);
 		return query.getResultList();
 	}
+	public void excluir(Ingrediente ingrediente) {
+		manager.remove(ingrediente);
+	}
+	
+	public Lanche getLanche(int codigo) {
+		return manager.find(Ingrediente.class, codigo);
+	}
+
 }
 
 	

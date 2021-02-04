@@ -11,7 +11,6 @@ public class Ingrediente {
 	@GeneratedValue
 	private double codigo;
 	private String nome;
-	private Fornecedor fornecedor;
 	
 	public Ingrediente() {
 		
