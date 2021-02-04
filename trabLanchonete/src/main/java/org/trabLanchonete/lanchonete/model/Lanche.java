@@ -11,11 +11,12 @@ import javax.persistence.OneToMany;
 public class Lanche {
 	
 	@Id
+	@GeneratedValue
 	private double numero;
 	private String nomeLanche;
 	private String nomeIngrediente;
 	@OneToMany 
-	private List<Ingredientes> ingrediente;
+	private List<Ingrediente> ingrediente;
 	@OneToMany
 	private List<Fornecedor> fornecedor;
 	
@@ -37,10 +38,10 @@ public class Lanche {
 	public void setNomeIngrediente(String nomeIngrediente) {
 		this.nomeIngrediente = nomeIngrediente;
 	}
-	public List<Ingredientes> getIngrediente() {
+	public List<Ingrediente> getIngrediente() {
 		return ingrediente;
 	}
-	public void setIngrediente(List<Ingredientes> ingrediente) {
+	public void setIngrediente(List<Ingrediente> ingrediente) {
 		this.ingrediente = ingrediente;
 	}
 	public List<Fornecedor> getFornecedor() {
@@ -49,8 +50,4 @@ public class Lanche {
 	public void setFornecedor(List<Fornecedor> fornecedor) {
 		this.fornecedor = fornecedor;
 	}
-
-	
-	
 }
-© 2021 GitHub, Inc.

@@ -1,38 +1,56 @@
+package org.trabLanchonete.lanchonete.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Ingrediente {
-	private Double codigo;
+	
+	@Id
+	@GeneratedValue
+	private double codigo;
 	private String nome;
 	private Fornecedor fornecedor;
 	
-	public Cliente() {
+	public Ingrediente() {
 		
 	}
 	
-	
-	public Cliente( Double codigo, String nome, Fornecedor fornecedor) {
+	public Ingrediente( double codigo, String nome, Fornecedor fornecedor) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.fornecedor = fornecedor;
 		
 	}
-	
-	public String getCodigoIngrediente() {
+
+	public double getCodigo() {
 		return codigo;
 	}
-	public void setCodigoIngrediente(String codigoIngrediente) {
-		this.codigo = codigoIngrediente;
+
+
+	public void setCodigo(double codigo) {
+		this.codigo = codigo;
 	}
-	public String getNomeIngrediente() {
+
+
+	public String getNome() {
 		return nome;
 	}
-	public void setNomeIngrediente(String NomeIngrediente) {
-		this.nome = NomeIngrediente;
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public String getFornecedor() {
+
+
+	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
-	public void setFornecedorIngrediente(String FornecedorIngrediente) {
-		this.fornecedor = FornecedorIngrediente;
+
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 }

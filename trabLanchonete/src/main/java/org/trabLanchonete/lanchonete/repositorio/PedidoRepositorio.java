@@ -1,12 +1,14 @@
+package org.trabLanchonete.lanchonete.repositorio;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.lanchonetemaven.modelo.Produto;
+import org.trabLanchonete.lanchonete.model.Pedido;
 
-public class ProdutoRepositorio {
+public class PedidoRepositorio {
 	@PersistenceContext
 	private EntityManager manager;
 
@@ -22,7 +24,7 @@ public class ProdutoRepositorio {
 		manager.remove(pedido);
 	}
 	
-	public Produto getPedido(int numero) {
+	public Pedido getPedido(int numero) {
 		return manager.find(Pedido.class, numero);
 	}
 	

@@ -4,41 +4,76 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import org.trabLanchonete.lanchonete.dao.PedidoDAO;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Pedido {
 	
 	@Id
+	@GeneratedValue
 	private int nroPedido;
 	private LocalDateTime dtPedido;
 	private String nomeCliente;
 	private String telefone;
 	private String endereco;
-	private Lanche lanche;
+	@OneToMany
+	private List<Lanche> Lanches;
+	private int totalPedido;
 
 	public Pedido() {
 		
 	}
 	
 	
-	public Pedido(int nroPedido, LocalDateTime dtPedido, String nomeCliente, String telefone, String endereco, List<Lanche> lanches) {
+	//Retirar
+	public Pedido(int nroPedido, LocalDateTime dtPedido, String nomeCliente, String telefone, List<Lanche> lanches,
+			int totalPedido) {
+		super();
+		this.nroPedido = nroPedido;
+		this.dtPedido = dtPedido;
+		this.nomeCliente = nomeCliente;
+		this.telefone = telefone;
+		Lanches = lanches;
+		this.totalPedido = totalPedido;
+	}
+
+
+
+	//Entrega
+	public Pedido(int nroPedido, LocalDateTime dtPedido, String nomeCliente, String telefone, String endereco,
+			List<Lanche> lanches, int totalPedido) {
 		super();
 		this.nroPedido = nroPedido;
 		this.dtPedido = dtPedido;
 		this.nomeCliente = nomeCliente;
 		this.telefone = telefone;
 		this.endereco = endereco;
-		this.Lanches = lanches;
-		
+		Lanches = lanches;
+		this.totalPedido = totalPedido;
 	}
-	public String getnomeCliente() {
+
+
+
+
+	public String getNomeCliente() {
 		return nomeCliente;
 	}
-	public void setnomeCliente(String nomeCliente) {
+
+
+	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
+	}
+
+
+	public int getTotalPedido() {
+		return totalPedido;
+	}
+
+
+	public void setTotalPedido(int totalPedido) {
+		this.totalPedido = totalPedido;
 	}
 	
 	public String getTelefone() {
@@ -48,7 +83,7 @@ public class Pedido {
 		this.telefone = telefone;
 	}
 	
-	public LocalDateTime getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
@@ -67,27 +102,24 @@ public class Pedido {
 	public void setNroPedido(int nroPedido) {
 		this.nroPedido = nroPedido;
 	}
-	public Cliente getCliente() {
-		return cliente;
+
+	public List<Lanche> getLanches() {
+		return Lanches;
 	}
-	public Cliente getLanches() {
-		return lanche;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	public void setLanches(Lanche lanche) {
-		this.lanche = lanche;
+
+
+	public void setLanches(List<Lanche> lanches) {
+		Lanches = lanches;
 	}
 
 	
-	public void FazerPedido(int nroPedido, LocalDateTime dtPedido, double valorTotal, Cliente cliente, Lanche lanche) {
-		Pedido p1 = new Pedido(nroPedido, dtPedido, cliente, lanche);
-		PedidoDAO.gravar(p1);
-	}
-	public void consultarPedido(int numero) {
-		PedidoDAO.listarUm(numero);
-	}
+//	public void FazerPedido(int nroPedido, LocalDateTime dtPedido, double valorTotal, Lanche lanche) {
+//		Pedido p1 = new Pedido(nroPedido, dtPedido, lanche);
+//		PedidoDAO.gravar(p1);
+//	}
+//	public void consultarPedido(int numero) {
+//		PedidoDAO.listarUm(numero);
+//	}
 	
 	
 	

@@ -1,29 +1,30 @@
-import java.util.List;
+package org.trabLanchonete.lanchonete.repositorio;
 
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+import org.trabLanchonete.lanchonete.model.Lanche;
+
+@Repository
 public class LancheRepositorio {
+	
 	@PersistenceContext
 	private EntityManager manager;
-
-	public void inserir(Lanche lanche) {
+	
+	public void cadastrar(Lanche lanche) {
 		manager.persist(lanche);
 	}
 	
-	public void atualizar(Lanche lanche) {
-		manager.merge(lanche);
+	public Lanche getFornecedor(int numero) {
+		Query query = manager.createQuery("select f from lanche f where f.numero = ?1");
+		query.setParameter(1, numero);
+		try {
+			return (Lanche) query.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
-	
-	public void excluir(Lanche lanche) {
-		manager.remove(lanche);
-	}
-	
-	public Produto getLanche(int numero) {
-		return manager.find(Lanche.class, numero);
-	}
-	
-	public List<Lanche> getLanches() {
-		TypedQuery<Lanche> query = manager.createQuery("select p from Lanches p", Lanche.class);
-		return query.getResultList();
-	}
-
-
 }
